@@ -13,14 +13,16 @@ export const HeaderContainer = styled.header`
 `
 export const NavbarContainer = styled.nav<NavbarContainerProps>`
      display: flex;
-     width: 100%;
+     width: 80%;
      height: ${(props) => (props.openNavbar ? "100vh" : "80px")}; 
      flex-direction: column;
      background-color:#0A1828;
      position: fixed;
-     top: 0px;
+     top: 30px;
+     border-radius: 70px;
      z-index: 1;
-     /* box-shadow: 1px 3px 4px ${({ theme }) => theme.colors.secondary}; */
+     box-shadow: 0px 0px 8px ${({ theme }) => theme.colors.secondary};  
+     padding: 10px 20px;
    
 
      @media (max-width:700px){

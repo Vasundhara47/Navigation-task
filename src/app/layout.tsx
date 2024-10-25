@@ -4,14 +4,17 @@ import Header from "./Components/Header/header";
 import styled, { createGlobalStyle } from "styled-components";
 import { theme } from "./Components/Styled/theme";
 import { ThemeProvider } from "styled-components";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Work Sans', sans-serif;
     width: 100vw;
-    /* background-color: ${({ theme }) => theme.colors.primary}; */
+    background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.terniry};
+    background-color: #000;
   }
   
 `;
@@ -28,18 +31,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const pathname = usePathname();
   return (
     <html lang="en">
       <ThemeProvider theme={theme}>
         <body >
           <GlobalStyle />
           <Header />
-          <Main>
+          <Main >
             {children}
           </Main>
 
         </body>
       </ThemeProvider>
-    </html>
+    </html >
   );
 }
